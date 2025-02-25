@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+body
+{
+  font-family: 'Monsterrat', sans-serif;
+}
+.color-1 {
+  background-color: #9AA6B2;
+}
+.color-white
+{
+background-color: #F8FAFC;
+}
+.color-2
+{
+background-color: #BCCCDC;
+}
+.color-3
+{
+background-color: #D9EAFD;
+}
