@@ -1,23 +1,22 @@
 @import "tailwindcss";
-@import 'remixicon/fonts/remixicon.css';
-
+@import "remixicon/fonts/remixicon.css";
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .color-1 {
-  background-color: #9AA6B2;
+  background-color: #9aa6b2;
 }
-.color-white
-{
-background-color: #F8FAFC;
+.color-white {
+  background-color: #f8fafc;
 }
-.color-2
-{
-background-color: #BCCCDC;
+.color-2 {
+  background-color: #bcccdc;
 }
-.color-3
-{
-background-color: #D9EAFD;
+.color-3 {
+  background-color: #d9eafd;
+}
+.btn {
+  @apply bg-white text-black font-bold px-6 py-2 rounded-sm mt-2.5 hover:opacity-55;
 }
