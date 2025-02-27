@@ -6,8 +6,11 @@ import cleanCodeImg from "./assets/cleancode.jpg";
 import reactbook from "./assets/react.jpg";
 import jsbook from "./assets/js.png";
 import RandomQuote from "./components/quotes_app/components/RandomQuote";
-
+import { useState } from "react";
+import Counter from "./components/Counter";
+import NameForm from "./components/Forms";
 const App = () => {
+  // Books data
   const books = [
     {
       id: 1,
@@ -34,6 +37,8 @@ const App = () => {
       price: 2000,
     },
   ];
+
+  // Users data
   const users = [
     {
       id: 1,
@@ -48,6 +53,13 @@ const App = () => {
       password: "********",
     },
   ];
+
+  // Random Quote data
+  const [quote, setQuote] = useState({
+    author: "",
+    content: "Click the button to get a random quote",
+  });
+  const [color, setColor] = useState("bg-blue-300");
   const quotes = [
     {
       author: "Swz",
@@ -90,6 +102,36 @@ const App = () => {
         "Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.",
     },
   ];
+
+  function getRandomQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    setQuote(quotes[randomIndex]);
+    setColor(getRandomColor());
+  }
+  function getRandomColor() {
+    const colors = [
+      "bg-red-600",
+      "bg-yellow-400",
+      "bg-green-500",
+      "bg-blue-300",
+      "bg-blue-400",
+      "bg-amber-700",
+      "bg-slate-100",
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+  // Simple Counter data
+  const [count, setCount] = useState(0);
+  const Increment = () => {
+    // const [count, setCount] = useState(0);
+    setCount(count + 1);
+  };
+  const Decrement = () => {
+    // const [count, setCount] = useState(0);
+    setCount(count - 1);
+  };
+
+  // Returning in App component
   return (
     <>
       <Navbar />
@@ -101,7 +143,9 @@ const App = () => {
       {users.map((user) => {
         return <UserProfile key={user.id} {...user} />;
       })}
-      <RandomQuote />
+      <RandomQuote quote={quote} color={color} onChange={getRandomQuote} />
+      <Counter count={count} Increment={Increment} Decrement={Decrement} />
+      <NameForm />
     </>
   );
 };
