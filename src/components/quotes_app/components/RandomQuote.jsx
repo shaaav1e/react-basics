@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const RandomQuote = () => {
   const [quote, setQuote] = useState("");
-  const [color, setColor] = useState("bg-blue-300");
+  const [color, setColor] = useState("bg-blue-700");
   const quotes = [
     {
       author: "Swz",
