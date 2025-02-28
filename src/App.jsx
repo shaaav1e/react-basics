@@ -135,7 +135,7 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <div className="grid grid-cols-3 gap-4 p-5">
+      <div className="grid grid-cols-1 md:grid-cols-3  gap-4 p-5">
         {books.map((book, index) => {
           return <Book key={index} {...book} />;
         })}
