@@ -18,7 +18,14 @@ const GroceryList = () => {
   function deleteItem(index) {
     setGroceryList((prevList) => prevList.filter((item, i) => i !== index));
   }
-
+  function editItem(index) {
+    setGroceryList((prevList) => {
+      prevList.map((item, i) => {
+        console.log(`${index} out of ${i} purchased`);
+        setItem("Purchased");
+      });
+    });
+  }
   return (
     <div>
       <h1 className="font-bold text-center">GROCERY LIST.</h1>
@@ -42,7 +49,10 @@ const GroceryList = () => {
           >
             <div className="flex gap-3">
               {item}
-              <i className="ri-check-line text-xl text-green-700"></i>
+              <i
+                onClick={() => editItem(i)}
+                className="ri-check-line text-xl text-green-700"
+              ></i>
               <i
                 onClick={() => deleteItem(i)}
                 className="ri-delete-bin-6-line text-xl text-red-600"
