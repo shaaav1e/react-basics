@@ -12,7 +12,7 @@ const Book = ({ bookName, author, description, price, img }) => {
   //   let isRead = false; //should never do changing of state like this in React
   const [isRead, setIsRead] = useState("Mark as Read");
   return (
-    <div className="flex flex-col  text-center gap-4 items-center bg-blue-300 text-black font-bold shadow-blue-400 shadow-xl rounded-lg p-2.5 mt-5 ">
+    <div className="flex flex-col  text-center gap-4 items-center bg-blue-300 text-black font-bold shadow-blue-400 shadow-xl rounded-lg p-2.5 ">
       <img src={img} className=" h-48 object-contain" alt="CleanCode"></img>
       <h2>Book: {bookName}</h2>
       <h3>By: {author}</h3>

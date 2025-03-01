@@ -9,6 +9,8 @@ import RandomQuote from "./components/quotes_app/components/RandomQuote";
 import { useState } from "react";
 import Counter from "./components/Counter";
 import NameForm from "./components/Forms";
+// import { Button } from "@/components/ui/button";
+import GroceryList from "./components/GroceryList";
 const App = () => {
   // Books data
   const books = [
@@ -135,17 +137,26 @@ const App = () => {
   return (
     <>
       <Navbar />
+      <h1 className="font-bold mt-3 text-center">Books.JSX</h1>
       <div className="grid grid-cols-1 md:grid-cols-3  gap-4 p-5">
         {books.map((book, index) => {
           return <Book key={index} {...book} />;
         })}
       </div>
+      <h1 className="font-bold mt-3 text-center">UserProfile.Jsx</h1>
       {users.map((user) => {
         return <UserProfile key={user.id} {...user} />;
       })}
+      {/* <hr></hr> */}
+      <h1 className="font-bold mt-5 text-center">RandomQuote.Jsx</h1>
       <RandomQuote quote={quote} color={color} onChange={getRandomQuote} />
+      <h1 className="font-bold mt-3 text-center">Counter.JSX</h1>
       <Counter count={count} Increment={Increment} Decrement={Decrement} />
+      <h1 className="font-bold mt-3 text-center">Forms.JSX</h1>
       <NameForm />
+      {/* <Button>ShadCn</Button> */}
+
+      <GroceryList />
     </>
   );
 };
