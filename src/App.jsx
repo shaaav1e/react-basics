@@ -10,7 +10,11 @@ import { useState } from "react";
 import Counter from "./components/Counter";
 import NameForm from "./components/Forms";
 // import { Button } from "@/components/ui/button";
-import GroceryList from "./components/GroceryList";
+import GroceryList from "./components/grocery_app/components/GroceryList";
+import Grocery from "./components/Grocery";
+import GroceryNav from "./components/GroceryNav";
+import GroceryForm from "./components/GroceryForm";
+import GroceryFooter from "./components/GroceryFooter";
 const App = () => {
   // Books data
   const books = [
@@ -132,7 +136,44 @@ const App = () => {
     // const [count, setCount] = useState(0);
     setCount(count - 1);
   };
+  // Grocery - grocery_app is different
+  const [groceriesItems, setGroceriesItems] = useState([]);
+  const [groceryInput, setGroceryInput] = useState("");
 
+  function handleOnChange(e) {
+    setGroceryInput(e.target.value);
+  }
+
+  function handleOnSubmit(e) {
+    e.preventDefault();
+    if (!groceryInput.trim()) return;
+
+    const newGrocery = {
+      id: Date.now(),
+      text: groceryInput,
+      bought: false,
+    };
+
+    setGroceriesItems([newGrocery, ...groceriesItems]);
+    setGroceryInput("");
+  }
+
+  function toggleBought(id) {
+    setGroceriesItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, bought: !item.bought } : item
+      )
+    );
+  }
+
+  function handleRemoveItem(id) {
+    setGroceriesItems((prevItems) =>
+      prevItems.filter((item) => item.id !== id)
+    );
+  }
+
+  const totalItems = groceriesItems.length;
+  const totalBought = groceriesItems.filter((item) => item.bought).length;
   // Returning in App component
   return (
     <>
@@ -156,7 +197,19 @@ const App = () => {
       <NameForm />
       {/* <Button>ShadCn</Button> */}
 
-      <GroceryList />
+      {/* <GroceryList /> */}
+      <GroceryNav />
+      <GroceryForm
+        handleOnChange={handleOnChange}
+        handleOnSubmit={handleOnSubmit}
+        item={groceryInput}
+      />
+      <Grocery
+        items={groceriesItems}
+        handleOnToggle={toggleBought}
+        handleRemoveItem={handleRemoveItem}
+      />
+      <GroceryFooter totalBought={totalBought} totalItems={totalItems} />
     </>
   );
 };
