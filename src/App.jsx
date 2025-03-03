@@ -11,10 +11,11 @@ import Counter from "./components/Counter";
 import NameForm from "./components/Forms";
 // import { Button } from "@/components/ui/button";
 import GroceryList from "./components/grocery_app/components/GroceryList";
-import Grocery from "./components/Grocery";
-import GroceryNav from "./components/GroceryNav";
-import GroceryForm from "./components/GroceryForm";
-import GroceryFooter from "./components/GroceryFooter";
+import Grocery from "./components/groc_packt/components/Grocery";
+import GroceryNav from "./components/groc_packt/components/GroceryNav";
+import GroceryForm from "./components/groc_packt/components/GroceryForm";
+import GroceryFooter from "./components/groc_packt/components/GroceryFooter";
+import FetchComponent from "./components/FetchComponent";
 const App = () => {
   // Books data
   const books = [
@@ -210,6 +211,7 @@ const App = () => {
         handleRemoveItem={handleRemoveItem}
       />
       <GroceryFooter totalBought={totalBought} totalItems={totalItems} />
+      <FetchComponent />
     </>
   );
 };
