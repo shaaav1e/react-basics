@@ -6,7 +6,7 @@ import cleanCodeImg from "./assets/cleancode.jpg";
 import reactbook from "./assets/react.jpg";
 import jsbook from "./assets/js.png";
 import RandomQuote from "./components/quotes_app/components/RandomQuote";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Counter from "./components/Counter";
 import NameForm from "./components/Forms";
 // import { Button } from "@/components/ui/button";
@@ -175,6 +175,27 @@ const App = () => {
 
   const totalItems = groceriesItems.length;
   const totalBought = groceriesItems.filter((item) => item.bought).length;
+
+  // useEffect - Interval Example
+  function AdjustableTimer() {
+    const [second, setSecond] = useState(0);
+    const [intervalms, setIntervalMS] = useState(1000);
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setSecond((prevvalue) => prevvalue + 1);
+      });
+    }, [intervalms]);
+    return (
+      <div>
+        <h1>Seconds:{second}</h1>
+        <input
+          type="number"
+          value={intervalms}
+          onChange={(e) => setIntervalMS(Number(e.target.value))}
+        />
+      </div>
+    );
+  }
   // Returning in App component
   return (
     <>
@@ -212,6 +233,7 @@ const App = () => {
       />
       <GroceryFooter totalBought={totalBought} totalItems={totalItems} />
       <FetchComponent />
+      <AdjustableTimer />
     </>
   );
 };
