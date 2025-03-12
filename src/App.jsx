@@ -1,21 +1,22 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Book from "./components/Book";
-import UserProfile from "./components/userprofile";
+import Navbar from "./components/basics_practice/components/Navbar";
+import Book from "./components/basics_practice/components/Book";
+import UserProfile from "./components/basics_practice/components/UserProfile";
 import cleanCodeImg from "./assets/cleancode.jpg";
 import reactbook from "./assets/react.jpg";
 import jsbook from "./assets/js.png";
 import RandomQuote from "./components/quotes_app/components/RandomQuote";
 import { useState, useEffect } from "react";
-import Counter from "./components/Counter";
-import NameForm from "./components/Forms";
+import Counter from "./components/basics_practice/components/Counter";
+import NameForm from "./components/basics_practice/components/Forms";
 // import { Button } from "@/components/ui/button";
 import GroceryList from "./components/grocery_app/components/GroceryList";
 import Grocery from "./components/groc_packt/components/Grocery";
 import GroceryNav from "./components/groc_packt/components/GroceryNav";
 import GroceryForm from "./components/groc_packt/components/GroceryForm";
 import GroceryFooter from "./components/groc_packt/components/GroceryFooter";
-import FetchComponent from "./components/FetchComponent";
+import FetchComponent from "./components/basics_practice/components/FetchComponent";
+import UseRefExample from "./components/useRef";
 const App = () => {
   // Books data
   const books = [
@@ -218,7 +219,6 @@ const App = () => {
       <h1 className="font-bold mt-3 text-center">Forms.JSX</h1>
       <NameForm />
       {/* <Button>ShadCn</Button> */}
-
       {/* <GroceryList /> */}
       <GroceryNav />
       <GroceryForm
@@ -233,7 +233,9 @@ const App = () => {
       />
       <GroceryFooter totalBought={totalBought} totalItems={totalItems} />
       <FetchComponent />
-      <AdjustableTimer />
+      {/* <AdjustableTimer /> */}
+      <h1 className="text-center font-bold mt-5">UseRef Example:</h1>
+      <UseRefExample />
     </>
   );
 };
